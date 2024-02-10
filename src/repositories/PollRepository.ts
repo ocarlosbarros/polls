@@ -1,18 +1,23 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { IPoll } from "../Interfaces/IPoll";
+import { prisma } from "../lib/prisma";
 
 class PollRepository {
     
-    public async create(title: string): Promise<any> {
+    public async create(poll: IPoll): Promise<any> {
         
-        const poll = await prisma.poll.create({
+        const created = await prisma.poll.create({
             data: {
-                title
+                title: poll.title,
+                options: {
+                    createMany: {
+                        data: poll.options.map(option => {
+                            return { title: option }
+                        }),
+                    }
+                }
             }
         });
-
-        return poll;
-
+        return created;
     }
 }
 

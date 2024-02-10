@@ -5,12 +5,13 @@ export default abstract class PollValidation {
     static titleIsString = (request: any): any => {
         
         const createPollBody = z.object({
-            title: z.string()
+            title: z.string(),
+            options:z.array(z.string()),
         });
         
-        const { title } = createPollBody.parse(request);
+        const poll = createPollBody.parse(request);
         
-        return title;
+        return poll;
 
     }
 }

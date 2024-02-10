@@ -12,9 +12,9 @@ class PollController {
 
     public create = async (request: any, reply: any) => {
 
-    const title = PollValidation.titleIsString(request.body);
+    const { title, options} = PollValidation.titleIsString(request.body);
 
-    const poll = await this._repository.create(title);
+    const poll = await this._repository.create({ title, options });
 
     return reply.status(201).send({ pollId: poll.id });
 
