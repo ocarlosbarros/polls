@@ -1,6 +1,7 @@
 
 import PollValidation from "../validations/PollValidation";
 import PollRepository from "../repositories/PollRepository";
+import { IPoll } from "../Interfaces/IPoll";
 
 class PollController {
     
@@ -18,6 +19,15 @@ class PollController {
 
     return reply.status(201).send({ pollId: poll.id });
 
+    }
+
+    public get = async (request: any, reply: any): Promise<string> => {
+
+    const pollId = PollValidation.getValidParams(request.params);
+        
+        const poll = await this._repository.get(pollId);
+
+        return reply.status(200).send(poll);
     }
 }
 
