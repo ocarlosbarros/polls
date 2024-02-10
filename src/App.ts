@@ -1,6 +1,7 @@
 import fastify from "fastify";
-import PoolController from "./controllers/PoolController";
-import PoolRepository from "./repositories/PoolRepository";
+import PollController from "./controllers/PollController";
+import PollRepository from "./repositories/PollRepository";
+import createPoll from "./routes/createPoll";
 
 class App {
     private app: any
@@ -11,15 +12,13 @@ class App {
     }
 
     public start(PORT: string | number): void {
-        this.app.listen(PORT).then(() => {
+        this.app.listen({port: PORT}).then(() => {
             console.log("HTTP server running...");
         });
     };
 
-    public RegisterRoutes(){
-        const poolRepository = new PoolRepository();
-        const poolController = new PoolController(poolRepository);
-        this.app.post('/polls', poolController.create)
+    public async RegisterRoutes(){
+        await this.app.register(createPoll);
     }
 
 
