@@ -1,5 +1,7 @@
 export interface IPoll {
-    id?: number,
+    id?: string,
     title: string,
     options: string[]
+    createdAt?: Date,
+    updatedAt?: Date,
 }
