@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import cookie from "@fastify/cookie";
+
 import createPoll from "./routes/createPoll";
 import getPoll from "./routes/getPoll";
 import createVoteOnPoll from "./routes/voteOnPoll";
@@ -8,7 +10,7 @@ class App {
     
     constructor(){
         this.app = fastify();
-        this.RegisterRoutes();
+        this.config();
     }
 
     public start(PORT: string | number): void {
@@ -17,10 +19,15 @@ class App {
         });
     };
 
-    public async RegisterRoutes(){
+    private async config():Promise<void> {
         await this.app.register(createPoll);
         await this.app.register(getPoll);
-        await this.app.register(createVoteOnPoll)
+        await this.app.register(createVoteOnPoll);
+        this.app.register(cookie, {
+            secret: "R$v#Fn54!HP$-W*",
+            hook: "onRequest",
+            parseOptions: {}
+        });
 
     }
 
