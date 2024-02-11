@@ -32,6 +32,11 @@ class PollController {
             return reply.status(404).send({ message: "Poll not found!"});
         }
 
+        /**
+         * 0 -1 - Get all options voted
+         */
+        const result = await redis.zrange(pollId, 0, -1, 'WITHSCORES');
+
     }
 }
 
