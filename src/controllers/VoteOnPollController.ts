@@ -1,3 +1,4 @@
+import { redis } from "../lib/redis";
 import VoteOnPollRepository from "../repositories/VoteOnPollRepository";
 import PollValidation from "../validations/PollValidation";
 import VoteValidation from "../validations/VoteValidation";
@@ -22,7 +23,9 @@ class VoteOnPollController {
             const userPreviousVoteOnPoll = await this._repository.getUserPreviousVote({ sessionId, pollId })
 
             if (userPreviousVoteOnPoll && userPreviousVoteOnPoll.pollOptionId !== pollOptionId){
-                await this._repository.deleteVote(userPreviousVoteOnPoll.id)
+                await this._repository.deleteVote(userPreviousVoteOnPoll.id);
+
+                await redis.zincrby(pollId, -1, userPreviousVoteOnPoll.pollOptionId);
                 
             } else if (userPreviousVoteOnPoll) {
                 return reply.status(400).send({ message: 'You already voted on this poll!'});
@@ -39,7 +42,15 @@ class VoteOnPollController {
                 httpOnly: true
             });
         }
-        const vote = await this._repository.create({ sessionId, pollId, pollOptionId })
+        
+        const vote = await this._repository.create({ sessionId, pollId, pollOptionId });
+
+        /**
+         * increments the option selected within the poll by one
+         */
+        await redis.zincrby(pollId, 1, pollOptionId);
+
+
 
         return reply.status(201).send(vote);
     }
