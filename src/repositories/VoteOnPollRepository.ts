@@ -27,6 +27,16 @@ class VoteOnPollRepository {
 
         return userPreviousVote;
     }
+
+    public deleteVote = async (id: number) => {
+        const voteDeleted = await prisma.vote.delete({
+            where: {
+                id,
+            }
+        })
+
+        return voteDeleted;
+    }
 }
 
 export default VoteOnPollRepository;
