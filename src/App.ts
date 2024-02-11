@@ -10,6 +10,7 @@ class App {
     
     constructor(){
         this.app = fastify();
+        this.registerRoutes();
         this.config();
     }
 
@@ -19,16 +20,18 @@ class App {
         });
     };
 
-    private async config():Promise<void> {
+    private async registerRoutes():Promise<void> {
         await this.app.register(createPoll);
         await this.app.register(getPoll);
         await this.app.register(createVoteOnPoll);
+    }
+
+    private config(){
         this.app.register(cookie, {
             secret: "R$v#Fn54!HP$-W*",
             hook: "onRequest",
             parseOptions: {}
         });
-
     }
 
 
