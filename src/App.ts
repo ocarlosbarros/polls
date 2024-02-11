@@ -1,9 +1,9 @@
 import fastify from "fastify";
 import cookie from "@fastify/cookie";
 
-import createPoll from "./routes/createPoll";
-import getPoll from "./routes/getPoll";
-import createVoteOnPoll from "./routes/voteOnPoll";
+import createPoll from "../src/server/http/routes/createPoll";
+import getPoll from "../src/server/http/routes/getPoll";
+import createVoteOnPoll from "../src/server/http/routes/voteOnPoll";
 
 class App {
     private app: any
