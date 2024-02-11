@@ -1,7 +1,7 @@
 
 import PollValidation from "../validations/PollValidation";
 import PollRepository from "../repositories/PollRepository";
-import { IPoll } from "../Interfaces/IPoll";
+import { redis } from "../lib/redis";
 
 class PollController {
     
@@ -45,6 +45,20 @@ class PollController {
             }
             return obj;
         }, {} as Record<string, number>);
+
+        return reply.status(200).send({ 
+            poll: {
+                id: poll.id,
+                title: poll.title,
+                options: poll.options.map((option: any) => {
+                    return {
+                        id: option.id,
+                        title: option.title,
+                        score: (option.id in votes) ? votes[option.id] : 0
+                    }
+                })
+            }
+        });
     }
 }
 
