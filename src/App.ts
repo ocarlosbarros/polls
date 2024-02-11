@@ -1,8 +1,7 @@
 import fastify from "fastify";
-import PollController from "./controllers/PollController";
-import PollRepository from "./repositories/PollRepository";
 import createPoll from "./routes/createPoll";
 import getPoll from "./routes/getPoll";
+import createVoteOnPoll from "./routes/voteOnPoll";
 
 class App {
     private app: any
@@ -21,6 +20,7 @@ class App {
     public async RegisterRoutes(){
         await this.app.register(createPoll);
         await this.app.register(getPoll);
+        await this.app.register(createVoteOnPoll)
 
     }
 
