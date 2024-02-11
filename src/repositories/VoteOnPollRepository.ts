@@ -1,3 +1,5 @@
+import { prisma } from "../lib/prisma";
+
 class VoteOnPollRepository {
 
     public create = async (vote: any ) => {
