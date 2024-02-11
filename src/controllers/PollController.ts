@@ -23,7 +23,7 @@ class PollController {
 
     public get = async (request: any, reply: any): Promise<string> => {
 
-    const pollId = PollValidation.getValidParams(request.params);
+    const pollId = PollValidation.getValidPollIdFromParams(request.params);
         
         const poll = await this._repository.get(pollId);
 
