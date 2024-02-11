@@ -27,7 +27,11 @@ class PollController {
         
         const poll = await this._repository.get(pollId);
 
-        return reply.status(200).send(poll);
+
+        if(!poll){
+            return reply.status(404).send({ message: "Poll not found!"});
+        }
+
     }
 }
 
