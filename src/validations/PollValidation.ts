@@ -15,7 +15,7 @@ export default abstract class PollValidation {
 
     }
 
-    static getValidParams = (request: any): string => {
+    static getValidPollIdFromParams = (request: any): string => {
         
         const getPollParams = z.object({
             pollId: z.string().uuid(),
