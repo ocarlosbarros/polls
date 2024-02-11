@@ -1,9 +1,11 @@
 import fastify from "fastify";
 import cookie from "@fastify/cookie";
+import { fastifyWebsocket } from "@fastify/websocket";
 
-import createPoll from "./routes/createPoll";
-import getPoll from "./routes/getPoll";
-import createVoteOnPoll from "./routes/voteOnPoll";
+import createPoll from "../src/server/http/routes/createPoll";
+import getPoll from "../src/server/http/routes/getPoll";
+import createVoteOnPoll from "../src/server/http/routes/voteOnPoll";
+import { pollResults } from "./server/http/ws/pollResults";
 
 class App {
     private app: any
@@ -24,6 +26,8 @@ class App {
         await this.app.register(createPoll);
         await this.app.register(getPoll);
         await this.app.register(createVoteOnPoll);
+        await this.app.register(fastifyWebsocket);
+        await this.app.register(pollResults);
     }
 
     private config(){

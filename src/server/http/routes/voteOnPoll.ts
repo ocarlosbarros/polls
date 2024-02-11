@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
-import VoteOnPollController from "../controllers/VoteOnPollController";
-import VoteOnPollRepository from "../repositories/VoteOnPollRepository";
+import VoteOnPollController from "../../../controllers/VoteOnPollController";
+import VoteOnPollRepository from "../../../repositories/VoteOnPollRepository";
 
 export default async function createVoteOnPoll(app: FastifyInstance){
     const voteOnPollRepository = new VoteOnPollRepository;
