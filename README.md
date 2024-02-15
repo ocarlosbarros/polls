@@ -1,12 +1,12 @@
 <div align="center">
 
-# Pools
+# Polls
 
 🚧 :construction: README under construction  🚧 :construction:
 
 <!-- CHANGE ocarlosbarros AND Pools IN ALL LINK LOCATION -->
 
-[![ocarlosbarros - Pools](https://img.shields.io/static/v1?label=ocarlosbarros&message=Pools&color=3178c6&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/Pools "Go to GitHub repo")
+[![ocarlosbarros - Polls](https://img.shields.io/static/v1?label=ocarlosbarros&message=Polls&color=3178c6&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/polls "Go to GitHub repo")
 
 <!-- BADGES OF STATUS IN DEVELOPEMNT AND LICENSE MIT -->
 <img src="http://img.shields.io/static/v1?label=status&message=in%20development&color=3178c6&style=for-the-badge"/>
@@ -14,7 +14,7 @@
 
 <!-- BELOW CHANGE THE PROJECT NAME AND THE PATH TO A LOCAL IMAGE REPRESENTING THE PROJECT PROJECT -->
 
-<!-- !Pools([PATH_IMAGE]) example: ![MY APP](./src/images/applicacao.png)--> 
+<!-- !Polls([PATH_IMAGE]) example: ![MY APP](./src/images/applicacao.png)--> 
 
 </div>
 
