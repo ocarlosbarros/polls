@@ -6,7 +6,7 @@
 
 <!-- CHANGE ocarlosbarros AND Pools IN ALL LINK LOCATION -->
 
-[![ocarlosbarros - Polls](https://img.shields.io/static/v1?label=ocarlosbarros&message=Polls&color=3178c6&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/polls "Go to GitHub repo")
+[![ocarlosbarros - Polls](https://img.shields.io/static/v1?label=ocarlosbarros&message=polls&color=3178c6&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/polls "Go to GitHub repo")
 
 <!-- BADGES OF STATUS IN DEVELOPEMNT AND LICENSE MIT -->
 <img src="http://img.shields.io/static/v1?label=status&message=in%20development&color=3178c6&style=for-the-badge"/>
@@ -104,6 +104,7 @@ Return data from a single poll.
 	}
 }
 ```
+<p align="right"><a href="#polls">back to top</a></p>
 
 #### POST `/polls/:pollId/votes`
 
@@ -116,6 +117,7 @@ Add a vote to specific poll.
   "pollOptionId": "31cca9dc-15da-44d4-ad7f-12b86610fe98"
 }
 ```
+<p align="right"><a href="#polls">back to top</a></p>
 
 ### WebSockets
 
@@ -129,6 +131,8 @@ Add a vote to specific poll.
   "votes": 2
 }
 ```
+
+<p align="right"><a href="#polls">back to top</a></p>
 
 <!-- ends first block of content -->
 
@@ -162,6 +166,17 @@ This project was built with Nodejs.
 These instructions will allow you to get a copy of the project on your local machine for development and testing purposes.
 
 ##  :warning: Requirements 
+
+- Docker;
+- Node.js;
+
+Before starting, you need to have Node.js and Docker installed on your computer. You can download them at https://nodejs.org and https://www.docker.com/get-started/.
+
+Check that the installations were successful by running the command in terminal.
+
+```
+node -v & docker -v
+```
 
 <p align="right"><a href="#polls">back to top</a></p>
 
