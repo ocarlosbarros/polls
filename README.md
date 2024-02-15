@@ -201,10 +201,17 @@ npm install
 ```
 
 4. Run project
+
+    - Run the docker compose script to up the database containers
+    - Run application
+
+```
+docker compose up -d
+```
+
 ```
 npm run dev
 ```
-
 
 <p align="right"><a href="#polls">back to top</a></p>
 
